@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('tasks.index');
 });
 
-//Auth::routes();
+Auth::routes();
 
+
+Route::get('/tasks', "App\Http\Controllers\TaskController@index");
+Route::post("/task", "App\Http\Controllers\TaskController@store");
+Route::delete('/task/{task}', "TaskController@destroy");
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
