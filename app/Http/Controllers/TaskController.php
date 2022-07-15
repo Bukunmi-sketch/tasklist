@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Task;
-use App\Models\User;
+use App\Tasks;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use App\Repositories\TaskRepository;
 class TaskController extends Controller
 {
     /**      
