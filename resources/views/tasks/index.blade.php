@@ -44,6 +44,42 @@
                     </form>
                 </div>
             </div>
+
+            <!--current task list-->
+            @if(count($tasks)  > 0)
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                        Current task list
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <table class="table table-striped task-table">
+                    <!--table heading-->
+                    <thead>
+                        <th>Tasks</th>
+                        <th>&nbsp;</th>
+                    </thead>
+
+                    <!--table body-->
+                    <tbody>
+                       @foreach($tasks as $task)
+                            <tr>
+                                <td class="table-text">
+                                    <div>{{$task->name}}</div>
+                                </td>
+                                <td>
+                                    <!--delete -->
+                                </td>
+                            </tr>
+
+                       @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+
+            @endif
         </div>
     </div>
     <!-- TODO: Current Tasks -->
