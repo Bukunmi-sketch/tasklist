@@ -10,15 +10,21 @@ use App\Http\Controllers\Controller;
 use App\Repositories\TaskRepository;
 class TaskController extends Controller
 {
-    /**      
-   * @return void
-    */
     /**
- * Create a new task.
- *
- * @param  Request  $request
- * @return Response
- */
+     * the task repository instance;
+     *  @var TaskRespository
+     */
+     protected $tasks;
+    /**      
+     * @return void
+    */
+
+---
+    /**
+     * Create a new task.
+     * @param  Request  $request
+     * @return Response
+     */
 
     public function __construct()
     {
