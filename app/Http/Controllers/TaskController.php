@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Task;
 class TaskController extends Controller
 {
     /**      
@@ -22,6 +23,9 @@ class TaskController extends Controller
     }
     
     public function index(Request $request){
+        $tasks=Task::where("user_id",$request->user()->id)->get();
+
+        //$user=User::where("id", $request->tasks()->user_id)->get();
         return view('tasks.index');
     }
 
