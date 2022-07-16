@@ -47,7 +47,7 @@ class TaskController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             "name"=>"required|max:255",
-           // "task"=>"required"
+         
         ]);
 
         $request->user()->tasks()->create([
@@ -55,5 +55,9 @@ class TaskController extends Controller
         ]);
 
         return redirect("/tasks");
+    }
+
+    public function destroy(Request $request, $taskid){
+
     }
 }

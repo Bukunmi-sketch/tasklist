@@ -46,7 +46,7 @@
             </div>
 
             <!--current task list-->
-            @if(count($tasks)  > 0)
+            @if(count($tasks) > 0)
             <div class="panel panel-default">
                 <div class="panel-heading">
                         Current task list
@@ -69,7 +69,12 @@
                                     <div>{{$task->name}}</div>
                                 </td>
                                 <td>
-                                    <!--delete -->
+                                   <form action="/task/{{$task->id}}" method="POST">
+                                        {{csrf_field() }}
+                                        {{ method_field("DELETE") }}
+
+                                        <button>delete</button>
+                                   </form>
                                 </td>
                             </tr>
 
