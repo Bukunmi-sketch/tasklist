@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id')->index();
             $table->string('name');
+            $table->string('secondtask');
             $table->timestamps();
         });
     }

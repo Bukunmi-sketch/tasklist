@@ -29,14 +29,14 @@
                             <label for="task table" class="col-sm-3 control-label">{{__('second task')}}</label>
             
                             <div class="col-sm-6">
-                                <input type="text" name="task" class="form-control" id="">
+                                <input type="text" name="stask" class="form-control" id="">
                             </div>
                         </div>
              
                         <!-- Add Task Button -->
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
-                                <button type="submit" class="btn btn-default">
+                                <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-plus"></i> Add Task
                                 </button>
                             </div>
@@ -51,7 +51,7 @@
                 <div class="panel-heading">
                         Current task list
                 </div>
-            </div>
+           
 
             <div class="panel-body">
                 <table class="table table-striped task-table">
@@ -69,11 +69,14 @@
                                     <div>{{$task->name}}</div>
                                 </td>
                                 <td>
+                                    <div>{{$task->secondtask}}</div>
+                                </td>
+                                <td>
                                    <form action="/task/{{$task->id}}" method="POST">
                                         {{csrf_field() }}
                                         {{ method_field("DELETE") }}
 
-                                        <button>delete</button>
+                                        <button class="btn btn-danger">delete</button>
                                    </form>
                                 </td>
                             </tr>
@@ -82,8 +85,8 @@
                     </tbody>
                 </table>
             </div>
-
-
+        </div>
+       
             @endif
         </div>
     </div>

@@ -8,6 +8,8 @@ use App\Models\Task;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\TaskRepository;
+use Laravel\Ui\Presets\React;
+
 class TaskController extends Controller
 {
     /**
@@ -43,16 +45,21 @@ class TaskController extends Controller
     }
 
     public function store(Request $request){
+
+        //dd($request->name,$request->stask);
+       
         $this->validate($request, [
             "name"=>"required|max:255",
+            "stask"=>"required|max:255",
+        ]);
          
-        ]);
-
+      
         $request->user()->tasks()->create([
-            "name"=>$request->name
+            "name"=>$request->name,
+            "secondtask"=>$request->stask,
         ]);
-
-        return redirect("/tasks");
+      
+      return redirect("/tasks");
     }
 
            /**
@@ -65,7 +72,7 @@ class TaskController extends Controller
     public function destroy(Request $request, Task $task){
             $this->authorize("destroy",$task);
             $task->delete();
-            
+
             return redirect("/tasks");
     }
 }
