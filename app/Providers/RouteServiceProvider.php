@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+
+use App\Models\Task;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -24,8 +26,9 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
+        Route::model('task',Task::class);
+
         $this->configureRateLimiting();
 
         $this->routes(function () {
@@ -35,9 +38,10 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+           
         });
-        Route::model("task",App\Task::class);
-      //  $router->model('task',"App\Model\Task");
+       
     }
 
     /**
