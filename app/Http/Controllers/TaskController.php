@@ -43,9 +43,7 @@ class TaskController extends Controller
     }
 
     public function store(Request $request){
-
-        //dd($request->name,$request->stask);
-       
+        //dd($request->name,$request->stask);       
         $this->validate($request, [
             "name"=>"required|max:255",
             "stask"=>"required|max:255",
