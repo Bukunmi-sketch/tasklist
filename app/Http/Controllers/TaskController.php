@@ -39,9 +39,7 @@ class TaskController extends Controller
 
     public function index(Request $request){
         //$user=User::where("id", $request->tasks()->user_id)->get();
-        return view('tasks.index',[
-            "tasks"=>$this->tasks->forUser($request->user())
-        ]);
+        return view('tasks.index',["tasks"=>$this->tasks->forUser($request->user()) ]);
     }
 
     public function store(Request $request){
